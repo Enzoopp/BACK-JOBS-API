@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Data Engineer",
+    "salary": 5000,
+    "hours": 530,
+    "id": 1,
+    "resources": 3
+  },
+  {
+    "name": "Fronted Engineer",
+    "salary": 6000,
+    "hours": 450,
+    "id": 2,
+    "resources": 3
+  },
+  {
+    "name": "Backend Engineer",
+    "salary": 9000,
+    "hours": 1500,
+    "id": 4,
+    "resources": 5
+  },
+  {
+    "name": "QA Engineer",
+    "salary": 3600,
+    "hours": 360,
+    "id": 5,
+    "resources": 2
+  },
+  {
+    "name": "Project Manager",
+    "salary": 20000,
+    "hours": 1080,
+    "id": 6,
+    "resources": 3
+  },
+  {
+    "name": "Technical Leader",
+    "salary": 1500,
+    "hours": 530,
+    "id": 7,
+    "resources": 3
+  },
+  {
+    "name": "Full Stack Developer",
+    "salary": 120000,
+    "hours": 10800,
+    "id": 8,
+    "resources": 10
+  }
+]
