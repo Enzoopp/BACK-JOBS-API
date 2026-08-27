@@ -1,9 +1,11 @@
 package com.uap.proiv.jobs.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
+    @NotNull
     private int id;
     private String email;
     @JsonProperty("first_name")

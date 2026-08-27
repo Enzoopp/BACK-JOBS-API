@@ -1,5 +1,7 @@
 package com.uap.proiv.jobs.controller;
 
+import com.uap.proiv.jobs.controller.AssignController;
+import com.uap.proiv.jobs.controller.UserController;
 import com.uap.proiv.jobs.service.JobService;
 import com.uap.proiv.jobs.service.UserJobAssignedService;
 import com.uap.proiv.jobs.service.UserService;
@@ -46,6 +48,12 @@ public class JobControllerTest{
     @InjectMocks
     JobController jobController;
 
+    @InjectMocks
+    UserController userController;
+
+    @InjectMocks
+    AssignController assignController;
+
     private MockMvc mockMvc;    
 
     private UserApiResponse userApiResponse;
@@ -56,7 +64,7 @@ public class JobControllerTest{
     @BeforeEach
     void setup() {
         
-        mockMvc = MockMvcBuilders.standaloneSetup(jobController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(jobController, userController, assignController).build();
         objectMapper = new ObjectMapper();      
 
 
@@ -99,22 +107,22 @@ public class JobControllerTest{
         .thenThrow(new RuntimeException("MSG"))  
         .thenReturn(userApiResponse);
 
-        mockMvc.perform(get("/api/job/users/1")).andExpect((status().isOk()))
+        mockMvc.perform(get("/api/user/1")).andExpect((status().isOk()))
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.data").isArray()).andExpect(jsonPath("$.data.length()").value(2))
         .andExpect(jsonPath(("$.page")).value(1))
         .andExpect(jsonPath("$.total").value(2));
 
-        mockMvc.perform(get("/api/job/users/1")).andExpect((status().is5xxServerError()));
+        mockMvc.perform(get("/api/user/1")).andExpect((status().is5xxServerError()));
 
-        mockMvc.perform(get("/api/job/users/1")).andExpect((status().isOk()));
+        mockMvc.perform(get("/api/user/1")).andExpect((status().isOk()));
     }  
     @Test
     @DisplayName("GET api /api/job/users/{page} - Excepcion retornada por el service")
     void getUsers_exception() throws Exception {
         when(userService.search(2)).thenThrow(new RuntimeException("Service Error"));
 
-        mockMvc.perform(get("/api/job/users/2")).andExpect(status().is5xxServerError())
+        mockMvc.perform(get("/api/user/2")).andExpect(status().is5xxServerError())
         .andExpect(content().string("Service Error"));
     }
 
@@ -126,7 +134,7 @@ public class JobControllerTest{
         userApiResponse.setPage(3);
         when(userService.search(1)).thenReturn(userApiResponse);
 
-        mockMvc.perform(get("/api/job/users/1")).andExpect((status().isOk()))
+        mockMvc.perform(get("/api/user/1")).andExpect((status().isOk()))
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.data").isArray()).andExpect(jsonPath("$.data.length()").value(2))
         .andExpect(jsonPath(("$.page")).value(3))
@@ -161,7 +169,7 @@ public class JobControllerTest{
 
         when(userJobAssignedService.assign()).thenReturn(userJobAssignedList);
 
-        mockMvc.perform(post("/api/job/assign")
+        mockMvc.perform(post("/api/assign")
         .contentType(MediaType.APPLICATION_JSON)
         .content(objectMapper.writeValueAsString(assignRequest)))
         .andExpect(status().isOk())

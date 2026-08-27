@@ -6,11 +6,12 @@ import jakarta.validation.constraints.NotNull;
 
 public class AssignRequest {
     @NotNull
+    @JsonProperty("requestNumber")
     private Integer requestNumber;
     @NotEmpty
+    @JsonProperty("clientName")
     private String clientName;
 
-    @JsonProperty("requestNumber")
     public Integer getRequestNumber() {
         return requestNumber;
     }
@@ -19,7 +20,6 @@ public class AssignRequest {
         this.requestNumber = requestNumber;
     }
 
-    @JsonProperty("clientName")
     public String getClientName() {
         return clientName;
     }

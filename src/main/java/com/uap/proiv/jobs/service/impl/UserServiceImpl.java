@@ -26,4 +26,13 @@ public class UserServiceImpl implements UserService {
     public User searchById(int id) {
         return userApiRepository.getUserById(id);
     }
+
+    @Override
+    public void update(User user) {
+        try {
+            userApiRepository.updateUser( user);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear el usuario: " + e.getMessage(), e);
+        }
+    }
 }
