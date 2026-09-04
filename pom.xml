@@ -73,6 +73,13 @@
 			<version>4.12.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Fix para issue #48588 de spring-boot: resttestclient no trae esta dependencia sola. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-restclient</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
