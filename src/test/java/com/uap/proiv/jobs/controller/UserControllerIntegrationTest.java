@@ -79,11 +79,14 @@ public class UserControllerIntegrationTest {
     void getUserById() throws Exception {
         String jsonResponse = """
                 {
-                "id":2,
-                "email":"john.doe@example.com",
-                "first_name":"Juan",
-                "last_name":"Perez",
-                "avatar": "https://reqres.in/img/faces/2.jpg"
+                                    "page": 1,
+                                    "data": [{
+                                        "id": 2,
+                                        "email": "john.doe@example.com",
+                                        "first_name": "Juan",
+                                        "last_name": "Perez",
+                                        "avatar": "https://reqres.in/img/faces/2.jpg"
+                                    }]
                 }
                 """;
 
