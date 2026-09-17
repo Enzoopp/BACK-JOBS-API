@@ -1,1 +1,16 @@
+com\uap\proiv\jobs\controller\UserControllerIntegrationTest$TestConfig.class
+com\uap\proiv\jobs\service\impl\JobServiceImplTest.class
+com\uap\proiv\jobs\controller\AssignControllerIntegrationTest.class
+com\uap\proiv\jobs\controller\UserControllerTest.class
+com\uap\proiv\jobs\e2e\AssignE2ETest.class
+com\uap\proiv\jobs\service\impl\UserJobAssignedServiceImplSpyTest.class
+com\uap\proiv\jobs\service\impl\AssignedServiceImplTest.class
+com\uap\proiv\jobs\service\impl\UserServiceImplTest.class
+com\uap\proiv\jobs\controller\UserControllerIntegrationTest.class
+com\uap\proiv\jobs\controller\JobControllerIntegrationTest.class
+com\uap\proiv\jobs\controller\JobControllerTest.class
+com\uap\proiv\jobs\e2e\AssignE2ETest$TestConfig.class
 com\uap\proiv\jobs\JobsApplicationTests.class
+com\uap\proiv\jobs\controller\AssignControllerIntegrationTest$TestConfig.class
+com\uap\proiv\jobs\service\impl\UserJobAssignedServiceImplTest.class
+com\uap\proiv\jobs\controller\AssignControllerTest.class
